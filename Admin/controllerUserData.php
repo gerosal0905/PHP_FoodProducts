@@ -1,9 +1,20 @@
 <?php 
+
+use PHPMailer\PHPMailer\PHPMailer;
+
+require_once "PHPMailer/PHPMailer.php";
+require_once "PHPMailer/SMTP.php";
+require_once "PHPMailer/Exception.php";
+
 session_start();
 require "connection.php";
 $email = "";
 $name = "";
 $errors = array();
+
+$mail=new PHPMailer(true);
+
+$alert = '';
 
 //if user signup button
 if(isset($_POST['signup'])){
@@ -104,7 +115,7 @@ if(isset($_POST['signup'])){
 
     //if user click continue button in forgot password form
     if(isset($_POST['check-email'])){
-        $email = mysqli_real_escape_string($con, $_POST['email']);
+        /* $email = mysqli_real_escape_string($con, $_POST['email']);
         $check_email = "SELECT * FROM usertable WHERE email='$email'";
         $run_sql = mysqli_query($con, $check_email);
         if(mysqli_num_rows($run_sql) > 0){
@@ -125,6 +136,38 @@ if(isset($_POST['signup'])){
                     $errors['otp-error'] = "Failed while sending code!";
                 }
             }else{
+                $errors['db-error'] = "Something went wrong!";
+            }
+        }else{
+            $errors['email'] = "This email address does not exist!";
+        } */
+        $email = mysqli_real_escape_string($con, $_POST['email']);
+        $check_email = "SELECT * FROM usertable WHERE email='$email'";
+        $run_sql = mysqli_query($con, $check_email);
+        if(mysqli_num_rows($run_sql) > 0){
+            $code = rand(999999, 111111);
+            $insert_code = "UPDATE usertable SET code = $code WHERE email = '$email'";
+            $run_query =  mysqli_query($con, $insert_code);
+            if($run_query){
+                    $mail->isSMTP();
+                    $mail->Host='smtp.gmail.com';
+                    $mail->SMTPAuth=true;
+                    $mail->Username='websitetest20223@gmail.com'; // Gmail addres-
+                    $mail->Password='owmxdcckeqhltdtu'; // Gmail address          
+                    $mail->SMTPSecure=PHPMailer::ENCRYPTION_STARTTLS;
+                    $mail->Port='587';
+                    $mail->setFrom('websitetest20223@gmail.com'); // Gmail address
+                    $mail->addaddress($email); // Email ad
+                    $mail->isHTML (true);
+                    $mail->Subject='New Inquiry';
+                    $mail->Body="<h3><br> Code: $code <br></h3>";
+                    $mail->send();
+                    $alert='<div class="alert-success">
+                                <span>Message Sent! Thank you for contacting us.</span>
+                            </div>';
+                    header('location: reset-code.php');
+                    exit();
+                }else{
                 $errors['db-error'] = "Something went wrong!";
             }
         }else{
