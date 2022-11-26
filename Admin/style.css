@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+html,body{
+    background: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+
+::selection{
+    color: #fff;
+    background: #6665ee;
+}
+.container{
+    display: block;
+    margin-top: 20%;
+    margin-left: 50%;
+    transform: translate(-50%, -50%);
+}
+.container .form{
+    background: #fff;
+    padding: 30px 35px;
+    border-radius: 5px;
+    box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 12px 20px 0 rgba(0, 0, 0, 0.19);
+    outline: invert;
+    outline-style: solid;
+    outline-color:darkgrey;
+}
+.container .form form .form-control{
+    height: 40px;
+    font-size: 15px;
+}
+.container .form form .forget-pass{
+    margin: -15px 0 15px 0;
+}
+.container .form form .forget-pass a{
+   font-size: 15px;
+}
+.container .form form .button{
+    background: #0a0a0a;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.container .form form .button:hover{
+    background: #0edb1f;
+}
+.container .form form .link{
+    padding: 5px 0;
+}
+.container .form form .link a{
+    color: #1cce48;
+}
+.container .login-form form p{
+    font-size: 14px;
+}
+.container .row .alert{
+    font-size: 14px;
+}
+.container img{
+    width: 150px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: 10px;
+    margin-top: -15px;
+}
+
+.showpass {
+    margin-bottom: 5px;
+}
+
+
+/* CSS */
+.btn81 {
+  background-color: #fff;
+  border: 0 solid #e2e8f0;
+  border-radius: 1.5rem;
+  box-sizing: border-box;
+  color: #0d172a;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Basier circle",-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 1rem 1.6rem;
+  text-align: center;
+  text-decoration: none #0d172a solid;
+  text-decoration-thickness: auto;
+  transition: all .1s cubic-bezier(.4, 0, .2, 1);
+  box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.btn81:hover {
+  background-color: #1e293b;
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .btn81 {
+    font-size: 1.125rem;
+    padding: 1rem 2rem;
+  }
+}
+
+.container2{
+	max-width: 1300px;
+	margin:auto;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+.footer{
+	background-color: #ffffff;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    font-family: 'Roboto', sans-serif;
+}
+.footer-col{
+   width: 20%;
+   
+}
+
+.footer-col .logo {
+    position: absolute;
+    display: inline-block;
+    height: 150px;
+	width: 120px;
+}
+
+.footer-col h4{
+	font-size: 18px;
+	color: #000000;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #000000;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #000000;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #6d6969;
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgb(212, 206, 206);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #7e7c7c;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+}  
